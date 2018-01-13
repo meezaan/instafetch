@@ -2,9 +2,6 @@
 include_once('config.php');
 /** Enter the URLs you want to download the videos from **/
 $urls = getUrls();
-var_dump($urls);
-die();
-
 
 /** **/
 
