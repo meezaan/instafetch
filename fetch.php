@@ -1,12 +1,10 @@
 <?php
-
+include_once('config.php');
 /** Enter the URLs you want to download the videos from **/
-$urls = [
-    'https://www.instagram.com/p/Ba7e43oFEcG/?hl=en&taken-by=faz3poem',
-];
+$urls = getUrls();
+var_dump($urls);
+die();
 
-/** Enter the path to the directory where you want to save the videos**/
-$store = '/save/to/this/directory';
 
 /** **/
 
@@ -26,6 +24,13 @@ foreach ($urls as $key => $url) {
 
 function downloadFile($url, $folder, $filename) {
     return file_put_contents("$folder/$filename.mp4", fopen("$url", 'r'));
+}
+
+function getUrls()
+{
+    $arr = file("urls.txt", FILE_SKIP_EMPTY_LINES);
+
+    return $arr;
 }
 
 function getVideoUrl($url)
