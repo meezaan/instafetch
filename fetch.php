@@ -15,6 +15,8 @@ foreach ($urls as $key => $url) {
         echo "Downloading...";
         downloadFile($vUrl, $store, $key . "_" . rand()) ;
         echo "Complete.\n";
+    } else {
+        echo "No video found!\n";
     }
 
 }
