@@ -39,7 +39,7 @@ function getVideoUrl($url)
     $doc->loadHTML(file_get_contents($url));
     $xpath = new DOMXPath($doc);
     $raw = (string) $doc->saveHtml();
-    $start = 'video_url": "http';
+    $start = 'video_url":"http';
     $end = '"video_view_count"';
 
     return findText($raw, $start, $end);
@@ -53,7 +53,7 @@ function findText($string, $start, $end)
     $posEnd = strpos($string, $end, $posStart);
     if($posStart > 0 && $posEnd > 0)
     {
-        $text = substr($string, $posStart + 13, $posEnd - $posStart - 16);
+        $text = substr($string, $posStart + 12, $posEnd - $posStart - 14);
     }
     if ($text) {
         return $text;
